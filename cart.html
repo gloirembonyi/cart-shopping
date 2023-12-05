@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="icon" href="./images/Cart logo2.png" type="image/x-icon">
+  <link rel="stylesheet" href="./cart.css">
+</head>
+<body>
+  <div class="dev-container">
+    <div class="headeer-top">
+      <div class="header-cntainer">
+        <h1>Enjoy! Add the product in the cart !!!!</h1>
+      </div>
+
+
+      <div class="button-container">
+        <button onclick="showQuantity()">Show Quantity</button>
+        <button onclick="addToCart(1)">Add to Cart</button>
+        <button onclick="addToCart(2)">+2</button>
+        <button onclick="addToCart(3)">+3</button>
+        <button onclick="removeFromCart()">Remove One</button>
+        <button onclick="resetCart()">Reset Cart</button>
+      </div>
+      
+      <script>
+        let cartQuantity = 0;
+      
+        function showQuantity() {
+          if (cartQuantity <= 0) {
+            alert(`No items in the cart.`);
+          } else if (cartQuantity === 1) {
+            alert(`You have only one item in the cart: ${cartQuantity}`);
+          } else {
+            alert(`All items you have in the cart is: ${cartQuantity}`);
+          }
+          console.log(`cartQuantity: ${cartQuantity}`);
+        }
+      
+        function addToCart(quantity) {
+          cartQuantity += quantity;
+          console.log(`cartQuantity: ${cartQuantity}`);
+          alert(`You add ${quantity} item(s) in the cart: ${cartQuantity}`);
+        }
+      
+        function removeFromCart() {
+          cartQuantity--; // Decrease cartQuantity by 1
+      
+          if (cartQuantity <= 0) {
+            // If cartQuantity is less than or equal to 0, set it to 0 and alert(no cart you have)
+            cartQuantity = 0;
+            alert(`No items in the cart.`);
+          } else {
+            // If cartQuantity is greater than 0, display cartQuantity value 
+            console.log(`cartQuantity: ${cartQuantity}`);
+            alert(`One item removed in cart remain: ${cartQuantity}`);
+          }
+      
+          // This line is enough to display the final cartQuantity value
+          console.log(`Final cartQuantity: ${cartQuantity}`);
+        }
+      
+        function resetCart() {
+          cartQuantity = 0;
+          console.log('The cart was reset');
+          console.log(`cartQuantity: ${cartQuantity}`);
+          alert(`Cart was reset: ${cartQuantity}`);
+        }
+      </script>
+    </div>
+  </div> 
+</body>
+</html>
